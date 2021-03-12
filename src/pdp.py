@@ -1,3 +1,6 @@
+"""
+Example of PDP for GaussianProcessRegressor.
+"""
 from interpret.glassbox import ExplainableBoostingRegressor
 from interpret.blackbox import PartialDependence
 import matplotlib.pyplot as plt
