@@ -1,2 +1,2 @@
 # pca_electronic_structure_descriptors
-Data for 'Statistical Learning to Extract the Electronic and Chemical Properties of Alloy and Metal Oxide Surfaces'.
+Data for 'Uncovering electronic and geometric descriptors of chemical activity for metal alloys and oxides using unsupervised machine learning'.
