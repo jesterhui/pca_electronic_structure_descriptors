@@ -2,23 +2,13 @@
 Example of CV procedure for GaussianProcessRegressor.
 """
 from collections import Counter
-import matplotlib as mpl
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import seaborn as sns
 from sklearn.decomposition import PCA, KernelPCA, TruncatedSVD
 from sklearn.gaussian_process import GaussianProcessRegressor
 from sklearn.metrics import mean_squared_error
 from sklearn.model_selection import GridSearchCV, KFold
-
-# set matplotlib settings
-mpl.rc('font', **{'family': 'serif', 'serif': ['Helvetica'], 'size': 7})
-mpl.rcParams['mathtext.fontset'] = 'cm'
-mpl.use('Agg')
-
-# import color palette from seaborn
-PALETTE = sns.color_palette('colorblind', n_colors=12)
 
 # load dos data
 DATA = np.loadtxt('../data/processed/dos_data.csv', delimiter=',', skiprows=1,
@@ -106,7 +96,7 @@ for IND, E_ADS in enumerate(ADS_DATA):
         print('Best GP alpha: {}'.format(Counter(GP_PARAMS).
                                          most_common(1)[0][0]) +
               ' count: {}'.format(Counter(GP_PARAMS).most_common(1)[0][1]))
-    plt.plot(range(1, 21), ERROR, color=PALETTE[0])
+    plt.plot(range(1, 21), ERROR)
     plt.legend(frameon=False)
     AX.set_xlabel(r'Number of singular values considered')
     AX.set_ylabel(r'$\mathregular{RMSE_{CV}}$ (eV)')
@@ -153,7 +143,7 @@ for IND, E_ADS in enumerate(ADS_DATA):
         print('Best GP alpha: {}'.format(Counter(GP_PARAMS).
                                          most_common(1)[0][0]) +
               ' count: {}'.format(Counter(GP_PARAMS).most_common(1)[0][1]))
-    plt.plot(range(1, 21), ERROR, color=PALETTE[0])
+    plt.plot(range(1, 21), ERROR)
     plt.legend(frameon=False)
     AX.set_xlabel(r'Number of singular values considered')
     AX.set_ylabel(r'$\mathregular{RMSE_{CV}}$ (eV)')
@@ -202,8 +192,7 @@ for IND, E_ADS in enumerate(ADS_DATA):
                   ' count: {}'.format(Counter(GP_PARAMS).most_common(1)[0][1]))
 
             plt.plot(range(1, 21), ERROR,
-                     label=r'$\mathregular{\gamma}$'+'={}'.format(gamma),
-                     color=PALETTE[j])
+                     label=r'$\mathregular{\gamma}$'+'={}'.format(gamma))
         plt.legend(frameon=False)
         AX.set_xlabel(r'Number of principal components used')
         AX.set_ylabel(r'$\mathregular{RMSE_{CV}}$ (eV)')
