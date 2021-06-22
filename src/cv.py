@@ -39,7 +39,7 @@ PARAMETERS = {'alpha': [1e-10, 3e-10, 1e-9, 3e-9, 1e-8, 3e-8, 1e-7, 3e-7,
 
 
 for IND, E_ADS in enumerate(ADS_DATA):
-    """
+
     #  CV for full DOS
     print('=================')
     print('GP Full DOS ' + LABELS[IND] + ' 10-fold CV')
@@ -70,7 +70,7 @@ for IND, E_ADS in enumerate(ADS_DATA):
     print('CV error: {}'.format(np.sum(CV_ERROR) / CV_ERROR.size))
     print('Best GP alpha: {}'.format(Counter(GP_PARAMS).most_common(1)[0][0]) +
           ' count: {}'.format(Counter(GP_PARAMS).most_common(1)[0][1]))
-    """
+
     FIG, AX = plt.subplots(figsize=(3, 2))
     # CV for TruncatedSVD
     print('=================')
